@@ -3,7 +3,13 @@ import BackgroundImg from "../assets/background.png"
 import Logo from "../assets/logo.svg"
 import { Input } from "../components/Input"
 import { Button } from "../components/Button"
+import { useNavigation } from "@react-navigation/native"
 export function SignUp(){
+    const navigator = useNavigation()
+
+    function handleGoBack(){
+        navigator.goBack() // Go back to the previous screen
+    }
     return (
         // VSTACK is a stack layout component that arranges its children vertically.
         <ScrollView contentContainerStyle={{flexGrow: 1}} showsVerticalScrollIndicator={false}>
@@ -32,7 +38,7 @@ export function SignUp(){
                     <Input placeholder="Senha" secureTextEntry/>
                     <Button title="Criar e acessar"/>
                 </Center>
-                <Button title="Voltar" variant="outline" mt="$12" />
+                <Button title="Voltar" variant="outline" mt="$12" onPress={handleGoBack}/>
             </VStack>
         </VStack>
         </ScrollView>
